@@ -195,13 +195,13 @@
                     <option value="sexta">Sexta</option>
                 </select>
             </div>
-            <div class="col-12">
+            <div class="col-12 d-flex">
                 <button type="submit" class="btn btn-primary" name="create_usuario">Cadastrar</button>
+                <button class="btn btn-danger"><a href="telap.php" class="btn btn-danger">Voltar</a></button>
             </div>
         </form>
     </div>
 
-    <p><a href="telap.php">Voltar</a></p>
 </body>
 
 </html>

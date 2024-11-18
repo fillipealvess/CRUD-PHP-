@@ -29,15 +29,33 @@ Ressalta-se que o projeto foi realizado desde o início passando pelas três eta
 3. **Modelo Físico**: Criação concreta do banco de dados no MySQL, com a implementação das tabelas e índices a fim de melhorar o desempenhos nas consultas.
 
 ## CONSULTAS SQL UTILIZADAS 🔎
-> INSERT INTO cliente (id_personal, email, senha, nome, dia1_c, dia2_c, dia1_b, dia2_b, dia1_t, dia2_t, dia1_p, dia2_p, dia1_pe, dia2_pe, dia1_o, dia2_o, exec1, exec2, exec3, exeb1, exeb2, exeb3, exet1,exet2, exet3, exep1, exep2, exep3, exeo1, exeo2, exepe1, exepe2, exepe3, exepe4, exepe5, exepe6) VALUES ($idpersonal, '$email', '$senha', '$nome', '$dia1c', '$dia2c', '$dia1b', '$dia2b', '$dia1t', '$dia2t', '$dia1p', '$dia2p', '$dia1pe', '$dia2pe', '$dia1o', '$dia2o', '$exc1', '$exc2', '$exc3', '$exb1', '$exb2', '$exb3', '$ext1', '$ext2', '$ext3', '$exp1', '$exp2', '$exp3', '$exo1', '$exo2', '$expe1', '$expe2', '$expe3', '$expe4', '$expe5', '$expe6')"
+```SQL
+INSERT INTO cliente (id_personal, email, senha, nome, dia1_c, dia2_c, dia1_b, dia2_b, dia1_t, dia2_t, dia1_p, dia2_p,
+ dia1_pe, dia2_pe, dia1_o, dia2_o, exec1, exec2, exec3, exeb1, exeb2, exeb3, exet1,exet2, exet3, exep1, exep2, exep3,
+ exeo1, exeo2, exepe1, exepe2, exepe3, exepe4, exepe5, exepe6)
+VALUES ($idpersonal, '$email', '$senha', '$nome', '$dia1c', '$dia2c', '$dia1b', '$dia2b', '$dia1t', '$dia2t', '$dia1p',
+ '$dia2p', '$dia1pe','$dia2pe', '$dia1o', '$dia2o', '$exc1', '$exc2', '$exc3', '$exb1', '$exb2', '$exb3', '$ext1',
+ '$ext2', '$ext3', '$exp1', '$exp2', '$exp3','$exo1', '$exo2', '$expe1', '$expe2', '$expe3', '$expe4', '$expe5', '$expe6')"
+```
+```SQL
+UPDATE cliente SET email = '$email', nome = '$nome', dia1_c = '$dia1c', dia2_c = '$dia2c', dia1_b = '$dia1b', dia2_b = '$dia2b',
+ dia1_t = '$dia1t', dia2_t = '$dia2t', dia1_p = '$dia1p', dia2_p = '$dia2p', dia1_pe = '$dia1pe', dia2_pe = '$dia2pe',
+ dia1_o = '$dia1o', dia2_o = '$dia2o', exec1 = '$exc1', exec2 = '$exc2', exec3 = '$exc3', exeb1 = '$exb1', exeb2 = '$exb2',
+ exeb3 = '$exb3', exet1 = '$ext1',exet2 = '$ext2', exet3 = '$ext3', exep1 = '$exp1', exep2 = '$exp2', exep3 = '$exp3',
+ exeo1 = '$exo1', exeo2 = '$exo2', exepe1 = '$expe1', exepe2 = '$expe2', exepe3 = '$expe3', exepe4 = '$expe4',
+ exepe5 = '$expe5', exepe6 = '$expe6';
+```
 
-> UPDATE cliente SET email = '$email', nome = '$nome', dia1_c = '$dia1c', dia2_c = '$dia2c', dia1_b = '$dia1b', dia2_b = '$dia2b', dia1_t = '$dia1t', dia2_t = '$dia2t', dia1_p = '$dia1p', dia2_p = '$dia2p', dia1_pe = '$dia1pe', dia2_pe = '$dia2pe', dia1_o = '$dia1o', dia2_o = '$dia2o', exec1 = '$exc1', exec2 = '$exc2', exec3 = '$exc3', exeb1 = '$exb1', exeb2 = '$exb2', exeb3 = '$exb3', exet1 = '$ext1',exet2 = '$ext2', exet3 = '$ext3', exep1 = '$exp1', exep2 = '$exp2', exep3 = '$exp3', exeo1 = '$exo1', exeo2 = '$exo2', exepe1 = '$expe1', exepe2 = '$expe2', exepe3 = '$expe3', exepe4 = '$expe4', exepe5 = '$expe5', exepe6 = '$expe6';
+```SQL
+DELETE FROM cliente WHERE id = '$aluno_id';
+```
 
-> DELETE FROM cliente WHERE id = '$aluno_id';
+```SQL
+SELECT * FROM cliente WHERE id='$aluno_id'
+```
 
-> SELECT * FROM cliente WHERE id='$aluno_id'
-
-> SELECT dia_da_semana, COUNT(*) AS frequencia
+```SQL
+SELECT dia_da_semana, COUNT(*) AS frequencia
 FROM (
     SELECT dia1_b AS dia_da_semana FROM cliente WHERE id_personal = $id_personal AND dia1_b <> ''
     UNION ALL
@@ -61,16 +79,27 @@ FROM (
 ) AS dias_unificados
 GROUP BY dia_da_semana
 ORDER BY frequencia DESC;
+```
 
-> SELECT * FROM cliente WHERE email = '$email' LIMIT 1
+```SQL
+SELECT * FROM cliente WHERE email = '$email' LIMIT 1
+```
 
-> SELECT * FROM personal WHERE email = '$email' AND senha = '$senha'
+```SQL
+SELECT * FROM personal WHERE email = '$email' AND senha = '$senha'
+```
 
-> $sql .= ", senha='" . password_hash($senha, PASSWORD_DEFAULT) . "'";
+```SQL
+$sql .= ", senha='" . password_hash($senha, PASSWORD_DEFAULT) . "'";
+```
 
-> SELECT * FROM cliente WHERE id='$cliente_id'
+```SQL
+SELECT * FROM cliente WHERE id='$cliente_id'
+```
 
-> SELECT * FROM cliente WHERE id_personal = '$id'
+```SQL
+SELECT * FROM cliente WHERE id_personal = '$id'
+```
 
 ## IMAGENS DO SISTEMA 📷
 <div align="center">
